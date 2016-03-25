@@ -1,0 +1,56 @@
+<script type='text/javascript'>
+$(function() {
+  // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
+  Dashing.widget_base_dimensions = [370, 340]
+  Dashing.numColumns = 5
+
+});
+</script>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="temperature" data-view="Conditions" data-title="Temperature"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dewpoint" data-view="Conditions" data-title="Dewpoint"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="rain" data-view="Conditions" data-title="Rain Today"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="humidity" data-view="Conditions" data-title="Humidity" data-suffix="%"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="windspeed" data-view="Conditions" data-title="Wind"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="2" data-sizey="2">
+    <div data-id="picture" data-view="BigImage" data-image="http://mesonet.agron.iastate.edu/GIS/radmap.php?layers%5b%5d=nexrad&layers%5b%5d=uscounties&bbox=-96.8,38.9,-94.46,39.8&title=Current%20NE%20Kansas%20Radar&width=800&height=600"
+    style="background-color:transparent;"
+    data-max="false"
+    ></div>
+    </li>
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="sunrise" data-view="Astronomy" data-title="Sunrise"></div>
+    </li>
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="sunset" data-view="Astronomy" data-title="Sunset"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="moonphase" data-view="Astronomy" data-title="Moon Phase"></div>
+    </li>    
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="hightemp" data-view="Conditions" data-title="High Today"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="lowtemp" data-view="Conditions" data-title="Low Tonight"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="pop" data-view="Conditions" data-title="Precip Chances" data-suffix="%"></div>
+    </li>
+
+
+
+  </ul>
+</div>
