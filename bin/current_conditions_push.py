@@ -1,27 +1,27 @@
-import xml.etree.ElementTree as ET
 import requests
 import urllib2
 import time
+import json
 from datetime import datetime
-tree = ET.ElementTree(file=urllib2.urlopen('http://holtonksweather.com/data/wxrss.xml' ))
-root = tree.getroot()
+request = urllib2.Request("https://api.holtonksweather.com/v1/current/KHLT", headers={"x-api-key" : "<API_KEY>"})
+json_string = urllib2.urlopen(request).read()
+parsed_json = json.loads(json_string)
 
+temperature = str(parsed_json['temp'])
+dewpoint = str(parsed_json['dewpoint'])
+rain = str(parsed_json['rain'])
+humidity = str(parsed_json['humidity'])
+windDir = str(parsed_json['windDir'])
+windSpeed = str(parsed_json['wind'])
+obtime = str(parsed_json['time'])
 
-for node in root.iter():
-	temperature = root.findtext('.//outsideTemp')
-	dewpoint = root.findtext('.//dewpoint')
-	rain = root.findtext('.//rain')
-	humidity = root.findtext('.//humidity')
-	windSpeed = root.findtext('.//windSpeed')
-	windDir = root.findtext('.//windDir')
-	obtime = root.findtext('.//obTime')
-tempf = temperature + " F" 
+tempf = temperature + " F"
 dewf = dewpoint + " F"
 rainin = rain + " Inches"
 percent = "%"
 humidityp = humidity
 timeAdd = str(time.time())
-windStr = windDir + " at " + windSpeed + " MPH" 
+windStr = windDir + " at " + windSpeed + " MPH"
 timeString = datetime.strptime(obtime, '%H:%M:%S')
 updateTime = "Observed at " + timeString.strftime('%I:%M %p')
 

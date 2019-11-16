@@ -1,14 +1,12 @@
 import urllib2
 import json
 import requests
-f = urllib2.urlopen('http://api.wunderground.com/api/3e393e8246e7ad6c/forecast/q/KS/Holton.json')
-json_string = f.read()
+request = urllib2.Request("https://api.holtonksweather.com/v1/forecast/daily", headers={"x-api-key" : "<API_KEY>"})
+json_string = urllib2.urlopen(request).read()
 parsed_json = json.loads(json_string)
-high = parsed_json['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
-low =  parsed_json['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit']
-pop = parsed_json['forecast']['simpleforecast']['forecastday'][0]['pop']
-f.close()
-
+high = str(parsed_json[0]['high'])
+low =  str(parsed_json[0]['low'])
+pop = str(parsed_json[0]['rain'])
 high = high + " F"
 low = low + " F"
 pop = str(pop)
@@ -34,5 +32,3 @@ result=requests.post(lowurl, data = lowtext )
 
 
 result=requests.post(highurl, data = hightext )
-
-
