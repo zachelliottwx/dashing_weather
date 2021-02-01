@@ -1,13 +1,12 @@
 # Starter pipeline
-- task: AWSCLI@1
-  inputs:
-    awsCredentials: 'AWS Connection'
-    regionName: 'us-east-2'
-    awsCommand: 'aws s3 ls'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
+- task: AWSCLI@1
+  inputs:
+    awsCredentials: 'AWS Connection'
+    regionName: 'us-east-1'
+    awsCommand: 'aws s3 ls'
 trigger:
 - main
 
